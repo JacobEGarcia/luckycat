@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky Cat - The voice assistant that brings you luck</title>
+<meta name="description" content="Lucky Cat is an ambient computer inside a maneki-neko. Wake word on-device, an offline brain, open software. Join the wishlist.">
+<meta name="theme-color" content="#14110C">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lucky Cat - The voice assistant that brings you luck">
+<meta property="og:description" content="An ambient computer inside a maneki-neko. Wake word on-device, an offline brain, open software. Join the wishlist.">
+<meta property="og:url" content="https://jacobegarcia.github.io/luckycat/">
+<meta property="og:image" content="https://jacobegarcia.github.io/luckycat/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@luckycatrobot">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&text=%E6%8B%9B%E3%81%8D%E7%8C%AB%E7%A6%8F&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
+<style>model-viewer::part(default-progress-bar) { display: none; }</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="#top">
+    <img src="assets/mark-mini-cream.png" alt="" class="brand-mark">
+    <span class="wordmark">LUCKY&nbsp;CAT</span>
+  </a>
+  <nav>
+    <a href="#line">The line</a>
+    <a href="#story">Story</a>
+    <a href="#inside">Inside</a>
+    <a href="https://jacobegarcia.github.io/lucky-playground/">Playground</a>
+    <a href="#wishlist" class="nav-cta">Wishlist</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero hero-monument">
+    <p class="eyebrow">An ambient computer, made in Chicago</p>
+    <p class="tategaki" aria-hidden="true">招き猫</p>
+    <div class="mark-wrap" id="hero-model-slot">
+      <img src="assets/hero-cat-base.png" alt="The Lucky Cat mark - a flat single-ink maneki-neko, waving" id="hero-mark">
+      <img src="assets/hero-cat-paw.png" alt="" aria-hidden="true" class="mark-paw">
+    </div>
+    <h1>The voice assistant<br>that brings you <em>luck.</em></h1>
+    <p class="lede">Lucky Cat lives inside a maneki-neko. It sits on your shelf, listens when you
+    call it, runs its own brain offline, and looks like it was always meant to be there.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#wishlist">Join the wishlist</a>
+      <a class="btn btn-ghost" href="#line">Meet the line</a>
+    </div>
+    <p class="hero-meta">First run in the workshop now &middot; built in public &middot; <a href="https://jacobegarcia.github.io/lucky-playground/">the playground</a></p>
+  </section>
+
+  <section class="strip" aria-hidden="true">
+    <img src="assets/banner-dark.png" alt="">
+  </section>
+
+  <section id="line" class="section reveal">
+    <p class="section-no">01</p>
+    <h2 class="section-title">The line.</h2>
+    <p class="section-lede">One brain, many bodies. Every Lucky Cat product runs the same open
+    stack - pick the object that belongs on your shelf.</p>
+
+    <article class="product">
+      <div class="product-info">
+        <div class="product-head">
+          <span class="product-no">P.01</span>
+          <span class="chip chip-live">In the workshop</span>
+        </div>
+        <h3>Lucky Cat</h3>
+        <p class="product-tag">The flagship. A ceramic maneki-neko with the assistant inside.</p>
+        <p>The cat people have kept by front doors for centuries, now with something to say.
+        Wake word on-device, a fine-tuned brain that runs fully offline, five personalities
+        you can swap like records. Electronics hide in a low base - the coin slot carries
+        the sound.</p>
+        <ul class="spec-list">
+          <li><span>Body</span><span>Ceramic cat, electronics in the base</span></li>
+          <li><span>Wake word</span><span>On-device, always local</span></li>
+          <li><span>Brain</span><span>Fine-tuned small model, runs offline</span></li>
+          <li><span>Voice</span><span>Open TTS, no cloud account</span></li>
+          <li><span>Personas</span><span>Classic, sassy, butler, hype, kid</span></li>
+        </ul>
+        <button class="btn btn-small" data-interest="cat">Wishlist the cat</button>
+      </div>
+      <figure class="product-art">
+        <img src="assets/render-front.png" alt="Concept render of the first Lucky Cat - white ceramic maneki-neko with raised paw, red collar, gold koban coin">
+        <figcaption>Concept render - the first Lucky Cat.</figcaption>
+      </figure>
+    </article>
+
+    <article class="product product-flip">
+      <div class="product-info">
+        <div class="product-head">
+          <span class="product-no">P.02</span>
+          <span class="chip">In design</span>
+        </div>
+        <h3>Genie</h3>
+        <p class="product-tag">The lamp edition. Same brain, second body.</p>
+        <p>A brass Aladdin-style lamp with the same stack inside. Rub the lamp to wake it -
+        no wake word needed. The lid nods, the arm waves, the lights answer. Grants wishes
+        in five voices, same as the cat.</p>
+        <ul class="spec-list">
+          <li><span>Body</span><span>Brass incense-burner lamp</span></li>
+          <li><span>Wake</span><span>Rub detection, no wake word</span></li>
+          <li><span>Motion</span><span>Servo lid nod, arm wave</span></li>
+          <li><span>Light</span><span>LED states, smoke and sparks</span></li>
+          <li><span>Stack</span><span>Same open software as the cat</span></li>
+        </ul>
+        <button class="btn btn-small" data-interest="lamp">Wishlist the lamp</button>
+      </div>
+      <figure class="product-art product-art-genie">
+        <p class="genie-big">Rub<br>the lamp.</p>
+        <p class="genie-small">Three wishes not included.</p>
+        <figcaption>Genie - the lamp edition.</figcaption>
+      </figure>
+    </article>
+
+    <article class="product">
+      <div class="product-info">
+        <div class="product-head">
+          <span class="product-no">P.03</span>
+          <span class="chip">In design</span>
+        </div>
+        <h3>Accessories</h3>
+        <p class="product-tag">Small luck, pocket size.</p>
+        <p>The mark was drawn in enamel-pin language from day one, so the first accessory
+        makes itself: the Lucky Cat pin, single ink in metal. A fidget toy is on the
+        drawing board next to it.</p>
+        <ul class="spec-list">
+          <li><span>Enamel pin</span><span>The mark in metal, in design</span></li>
+          <li><span>Fidget toy</span><span>On the drawing board</span></li>
+        </ul>
+        <button class="btn btn-small" data-interest="accessories">Wishlist accessories</button>
+      </div>
+      <figure class="product-art product-art-pin">
+        <img src="assets/mark-v4-cream.png" alt="The Lucky Cat mark - designed for enamel pins">
+        <figcaption>The mark, ready for metal.</figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <section id="story" class="section section-story reveal">
+    <p class="section-no">02</p>
+    <h2 class="section-title">Not another black cylinder.</h2>
+    <div class="story-body">
+      <p>Every smart speaker looks the same: a plastic puck, a fabric cylinder, a little
+      computer apologizing for existing. People have kept maneki-neko on their shelves for
+      centuries - in shops, in kitchens, by front doors - because a lucky cat is a charm,
+      not an appliance.</p>
+      <p>So that is where the computer goes. Lucky Cat is a voice assistant you would keep
+      on the shelf even if it never said a word.</p>
+    </div>
+  </section>
+
+  <section id="inside" class="section section-inside reveal">
+    <p class="section-no">03</p>
+    <h2 class="section-title">Its own brain, in your house.</h2>
+    <div class="story-body">
+      <p>The first prototype runs on a Raspberry Pi 5 with a fully offline stack: wake word
+      on-device, open speech-to-text and text-to-speech, and a small language model
+      fine-tuned just for the cat. Nothing leaves the room unless you ask it to.</p>
+      <ul class="spec-list spec-wide">
+        <li><span>Ears</span><span>whisper.cpp, on-device speech-to-text</span></li>
+        <li><span>Brain</span><span>Fine-tuned Qwen 3B, runs offline on a Pi 5</span></li>
+        <li><span>Voice</span><span>Piper TTS, open voices, no cloud</span></li>
+        <li><span>Body</span><span>Servo lid and paw, LED states, rub to wake</span></li>
+        <li><span>Personas</span><span>Five packs, hot-swappable, open format</span></li>
+        <li><span>Software</span><span>Genie OS - one stack, every body, built in public</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="strip strip-dark" aria-hidden="true">
+    <img src="assets/banner-dark.png" alt="">
+  </section>
+
+  <section class="section section-public reveal">
+    <p class="section-no">04</p>
+    <h2 class="section-title">Built in public.</h2>
+    <div class="story-body">
+      <p>Every step of the first Lucky Cat - the parts list, the fine-tune runs, the shell,
+      the mistakes - goes up as it happens.</p>
+      <div class="social-row">
+        <a href="https://luckycatrobot.substack.com">Substack</a>
+        <a href="https://x.com/luckycatrobot">X</a>
+        <a href="https://www.instagram.com/luckycatrobot/">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="playground" class="section section-playground reveal">
+    <p class="section-no">05</p>
+    <h2 class="section-title">The playground.</h2>
+    <p class="section-lede">Small toys from the Lucky Cat workshop. Free, no accounts, made for luck.</p>
+    <div class="toy-grid">
+      <a class="toy-card" href="https://jacobegarcia.github.io/lucky-cat-tamagotchi/" target="_blank" rel="noopener">
+        <img src="assets/toys/lucky-cat-tamagotchi.png" alt="Lucky Cat Tamagotchi - a virtual companion in a red handheld shell" loading="lazy">
+        <div class="toy-body"><h3>Tamagotchi</h3><p>A virtual companion that keeps living while you're away.</p></div>
+      </a>
+      <a class="toy-card" href="https://jacobegarcia.github.io/lucky-wave/" target="_blank" rel="noopener">
+        <img src="assets/toys/lucky-wave.png" alt="Lucky Wave - the Lucky Cat waving its paw" loading="lazy">
+        <div class="toy-body"><h3>Lucky Wave</h3><p>Wave for luck. The first wave of the day is today's fortune.</p></div>
+      </a>
+      <a class="toy-card" href="https://jacobegarcia.github.io/rub-the-lamp/" target="_blank" rel="noopener">
+        <img src="assets/toys/rub-the-lamp.png" alt="Rub the Lamp - a brass genie lamp on a dark ground" loading="lazy">
+        <div class="toy-body"><h3>Rub the Lamp</h3><p>Drag to rub. The first rub of the day is today's wish.</p></div>
+      </a>
+      <a class="toy-card" href="https://jacobegarcia.github.io/lucky-fortune/" target="_blank" rel="noopener">
+        <img src="assets/toys/lucky-fortune.png" alt="Lucky Fortune - the black cat offers a koban coin" loading="lazy">
+        <div class="toy-body"><h3>Lucky Fortune</h3><p>Hold the koban coin. The cat draws your daily luck.</p></div>
+      </a>
+      <a class="toy-card" href="https://jacobegarcia.github.io/lucky-catch/" target="_blank" rel="noopener">
+        <img src="assets/toys/lucky-catch.png" alt="Lucky Catch - catch the fortune start screen" loading="lazy">
+        <div class="toy-body"><h3>Lucky Catch</h3><p>Catch luck in the waving paw. Dodge the bad days.</p></div>
+      </a>
+      <a class="toy-card" href="https://jacobegarcia.github.io/koban-pusher/" target="_blank" rel="noopener">
+        <img src="assets/toys/koban-pusher.png" alt="Koban Pusher - the coin-pusher arcade cabinet" loading="lazy">
+        <div class="toy-body"><h3>Koban Pusher</h3><p>The Lucky Cat coin-pusher arcade.</p></div>
+      </a>
+      <a class="toy-card" href="https://jacobegarcia.github.io/lucky-runner/" target="_blank" rel="noopener">
+        <img src="assets/toys/lucky-runner.png" alt="Lucky Runner - a one-button runner under a night sky" loading="lazy">
+        <div class="toy-body"><h3>Lucky Runner</h3><p>One button. Jump the black jars, grab the koban.</p></div>
+      </a>
+      <a class="toy-card" href="https://jacobegarcia.github.io/lucky-bells/" target="_blank" rel="noopener">
+        <img src="assets/toys/lucky-bells.png" alt="Lucky Bells - the cat among gold coins" loading="lazy">
+        <div class="toy-body"><h3>Lucky Bells</h3><p>The coins, the bell, the cat - it remembers your tune.</p></div>
+      </a>
+      <a class="toy-card" href="https://jacobegarcia.github.io/lucky-sounds/ambient/" target="_blank" rel="noopener">
+        <img src="assets/toys/lucky-sounds.png" alt="Lucky Sounds - the sound identity board" loading="lazy">
+        <div class="toy-body"><h3>Lucky Sounds</h3><p>The sound identity of the whole line - every chime, procedural.</p></div>
+      </a>
+    </div>
+    <p class="playground-more"><a href="https://jacobegarcia.github.io/lucky-playground/">The full playground - high scores, and new toys as they land &rarr;</a></p>
+  </section>
+
+<section id="wishlist" class="wishlist">
+    <p class="section-no">06</p>
+    <span class="hanko" aria-hidden="true">福</span>
+    <h2>Be first in line.</h2>
+    <p class="wishlist-lede">The first run will be small. Join the wishlist, tell us what you
+    want, and you hear about it before anyone else.</p>
+    <form id="wishlist-form" novalidate>
+      <div class="interest-row">
+        <label><input type="checkbox" name="interest-cat" value="yes" checked> The cat</label>
+        <label><input type="checkbox" name="interest-lamp" value="yes"> The lamp</label>
+        <label><input type="checkbox" name="interest-accessories" value="yes"> Accessories</label>
+      </div>
+      <p class="persona-q">Optional: which persona should ship in the box first?</p>
+      <div class="persona-row" id="persona-row">
+        <label><input type="radio" name="persona" value="classic"><span>Classic</span></label>
+        <label><input type="radio" name="persona" value="sassy"><span>Sassy</span></label>
+        <label><input type="radio" name="persona" value="butler"><span>Butler</span></label>
+        <label><input type="radio" name="persona" value="hype"><span>Hype</span></label>
+        <label><input type="radio" name="persona" value="kid"><span>Kid</span></label>
+      </div>
+      <div class="email-row">
+        <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <button type="submit">Join the wishlist</button>
+      </div>
+    </form>
+    <div id="wishlist-done" class="wishlist-done" hidden>
+      <p class="wishlist-done-line">You're on the list. The cat will call for you.</p>
+      <p class="share-lede">Bring a friend luck:</p>
+      <div class="share-row">
+        <button type="button" class="btn btn-small" id="share-copy">Copy link</button>
+        <a class="btn btn-small btn-ghost" id="share-x" target="_blank" rel="noopener"
+           href="https://twitter.com/intent/tweet?text=Joining%20the%20Lucky%20Cat%20wishlist%20-%20a%20voice%20assistant%20inside%20a%20maneki-neko%2C%20built%20in%20public%20in%20Chicago.&url=https%3A%2F%2Fjacobegarcia.github.io%2Fluckycat%2F&via=luckycatrobot">Post on X</a>
+        <button type="button" class="btn btn-small btn-ghost" id="share-native" hidden>Share</button>
+      </div>
+      <p class="share-copied" id="share-copied" hidden>Link copied.</p>
+    </div>
+    <p class="wishlist-alt">Form trouble? <a href="mailto:jacobegarcia101@gmail.com?subject=Lucky%20Cat%20wishlist&body=Put%20me%20on%20the%20Lucky%20Cat%20wishlist.">Email us instead</a>.</p>
+  </section>
+
+</main>
+
+<footer>
+  <a class="brand" href="#top">
+    <img src="assets/mark-mini-cream.png" alt="" class="brand-mark">
+    <span class="wordmark">LUCKY&nbsp;CAT</span>
+  </a>
+  <nav class="footer-nav">
+    <a href="https://x.com/luckycatrobot">X</a>
+    <a href="https://www.instagram.com/luckycatrobot/">Instagram</a>
+    <a href="https://luckycatrobot.substack.com">Substack</a>
+  </nav>
+  <p>Made in Chicago.</p>
+</footer>
+
+<script>
+var FORMSPREE_ENDPOINT = "https://formspree.io/f/mljevqee";
+
+document.querySelectorAll('[data-interest]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var interest = btn.getAttribute('data-interest');
+    document.querySelectorAll('.interest-row input[type=checkbox]').forEach(function (box) {
+      box.checked = box.name === 'interest-' + interest;
+    });
+    document.getElementById('wishlist').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+document.getElementById('wishlist-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var form = this;
+  var input = form.querySelector('input[type=email]');
+  var btn = form.querySelector('button[type=submit]');
+  var email = (input.value || '').trim();
+  if (!email || email.indexOf('@') < 1 || email.indexOf('.') < 0) { input.focus(); return; }
+  var interests = [];
+  form.querySelectorAll('.interest-row input[type=checkbox]:checked').forEach(function (box) {
+    interests.push(box.name.replace('interest-', ''));
+  });
+  var persona = (form.querySelector('input[name=persona]:checked') || {}).value || '';
+  var src = new URLSearchParams(location.search).get('ref') ||
+            new URLSearchParams(location.search).get('utm_source') || 'direct';
+  btn.disabled = true; btn.textContent = 'Joining...';
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      interests: interests.join(', ') || 'unspecified',
+      persona_first: persona || 'no pick',
+      source: src,
+      _subject: 'Lucky Cat wishlist signup',
+      _gotcha: ''
+    })
+  }).then(function (res) {
+    if (res.ok) {
+      try { localStorage.setItem('lc-wishlist-joined', '1'); } catch (err) {}
+      showWishlistDone();
+    } else {
+      btn.disabled = false; btn.textContent = 'Try again';
+    }
+  }).catch(function () {
+    btn.disabled = false; btn.textContent = 'Try again';
+  });
+});
+
+function showWishlistDone() {
+  document.getElementById('wishlist-form').hidden = true;
+  document.querySelector('.wishlist-alt').hidden = true;
+  document.getElementById('wishlist-done').hidden = false;
+}
+try {
+  if (localStorage.getItem('lc-wishlist-joined') === '1') showWishlistDone();
+} catch (err) {}
+
+document.getElementById('share-copy').addEventListener('click', function () {
+  var url = 'https://jacobegarcia.github.io/luckycat/?ref=share';
+  var done = function () { document.getElementById('share-copied').hidden = false; };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done, done);
+  } else {
+    var t = document.createElement('textarea');
+    t.value = url; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch (err) {}
+    t.remove(); done();
+  }
+});
+if (navigator.share) {
+  var nb = document.getElementById('share-native');
+  nb.hidden = false;
+  nb.addEventListener('click', function () {
+    navigator.share({
+      title: 'Lucky Cat',
+      text: 'A voice assistant inside a maneki-neko, built in public in Chicago.',
+      url: 'https://jacobegarcia.github.io/luckycat/?ref=share'
+    }).catch(function () {});
+  });
+}
+</script>
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script>
+fetch('assets/luckycat-hero.glb', { method: 'HEAD' }).then(function (res) {
+  if (!res.ok) return;
+  var slot = document.getElementById('hero-model-slot');
+  var img = document.getElementById('hero-mark');
+  var mv = document.createElement('model-viewer');
+  mv.setAttribute('src', 'assets/luckycat-hero.glb');
+  mv.setAttribute('alt', 'The Lucky Cat - interactive 3D model, waving');
+  mv.setAttribute('camera-controls', '');
+  mv.setAttribute('disable-zoom', '');
+  mv.setAttribute('interaction-prompt', 'none');
+  mv.setAttribute('shadow-intensity', '1');
+  mv.setAttribute('exposure', '1');
+  mv.style.width = 'min(480px, 82vw)';
+  mv.style.height = 'min(480px, 82vw)';
+  mv.style.setProperty('--poster-color', 'transparent');
+  slot.innerHTML = '';
+  slot.appendChild(mv);
+  slot.classList.add('has-3d');
+  mv.addEventListener('load', function () {
+    // Pick the waving animation if the GLB names its clips; otherwise the first clip plays.
+    var clips = mv.availableAnimations || [];
+    var wave = clips.filter(function (n) { return /wave|beckon|arm/i.test(n); })[0] || clips[0];
+    if (wave) mv.animationName = wave;
+    mv.play(); // loops by default: the cat waves on load
+    // Replay the wave on hover / tap.
+    var replay = function () { if (mv.paused) { mv.currentTime = 0; mv.play(); } };
+    mv.addEventListener('pointerenter', function () { mv.currentTime = 0; mv.play(); });
+    mv.addEventListener('click', replay);
+  });
+}).catch(function () {});
+
+/* ---- hero life: pointer parallax + pet-the-cat, works over the PNG or the 3D model ---- */
+(function () {
+  var slot = document.getElementById('hero-model-slot');
+  var hero = document.querySelector('.hero');
+  if (!slot || !hero) return;
+  var calm = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+  if (calm) {
+    var tx = 0, ty = 0, rx = 0, ry = 0;
+    hero.addEventListener('pointermove', function (e) {
+      var r = slot.getBoundingClientRect();
+      tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width * 1.6)));
+      ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height * 1.6)));
+    });
+    hero.addEventListener('pointerleave', function () { tx = 0; ty = 0; });
+    (function tick() {
+      rx += (tx - rx) * 0.07; ry += (ty - ry) * 0.07;
+      slot.style.transform = 'translate3d(' + (rx * 14).toFixed(2) + 'px,' + (ry * 10).toFixed(2) +
+        'px,0) rotateY(' + (rx * 6).toFixed(2) + 'deg) rotateX(' + (-ry * 6).toFixed(2) + 'deg)';
+      requestAnimationFrame(tick);
+    })();
+  }
+  slot.addEventListener('pointerdown', function (e) {
+    slot.classList.remove('pet'); void slot.offsetWidth; slot.classList.add('pet');
+    if (!calm) return;
+    var r = slot.getBoundingClientRect();
+    for (var i = 0; i < 10; i++) {
+      var p = document.createElement('span');
+      p.className = 'luck-spark';
+      var a = (Math.PI * 2 * i) / 10 + Math.random() * 0.5;
+      var d = 46 + Math.random() * 42;
+      p.style.left = (e.clientX - r.left) + 'px';
+      p.style.top = (e.clientY - r.top) + 'px';
+      p.style.setProperty('--dx', (Math.cos(a) * d).toFixed(1) + 'px');
+      p.style.setProperty('--dy', (Math.sin(a) * d - 30).toFixed(1) + 'px');
+      slot.appendChild(p);
+      (function (el) { setTimeout(function () { el.remove(); }, 750); })(p);
+    }
+  });
+})();
+</script>
+<script>
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>

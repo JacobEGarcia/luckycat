@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky Cat - The voice assistant that brings you luck</title>
+<meta name="description" content="Lucky Cat is a voice assistant inside a maneki-neko. Wake word on-device, an offline brain, open software. Join the wishlist.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lucky Cat - The voice assistant that brings you luck">
+<meta property="og:description" content="An ambient computer inside a maneki-neko. Wake word on-device, an offline brain, open software. Join the wishlist.">
+<meta property="og:url" content="https://jacobegarcia.github.io/luckycat/studio/">
+<meta property="og:image" content="https://jacobegarcia.github.io/luckycat/studio/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@luckycatrobot">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <img src="assets/mark-v3-white.png" alt="" class="brand-mark">
+    <div class="wordmark">LUCKY&nbsp;CAT</div>
+  </div>
+  <nav>
+    <a href="#story">Why a cat</a>
+    <a href="#specs">Specs</a>
+    <a href="#wishlist">Wishlist</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Lucky Cat &middot; First run</p>
+      <h1>The voice assistant that brings you luck.</h1>
+      <p class="lede">An ambient computer inside a maneki-neko. It sits on your shelf, listens
+      when you call it, runs its own brain offline, and looks like it was always meant to be there.</p>
+      <a class="btn" href="#wishlist">Join the wishlist</a>
+    </div>
+    <figure class="hero-figure">
+      <img src="assets/render-front.png" alt="Concept render of the first Lucky Cat - white ceramic maneki-neko with raised paw, red collar, gold koban coin">
+      <figcaption>Concept render - the first Lucky Cat</figcaption>
+    </figure>
+  </section>
+
+  <section id="story" class="story">
+    <h2>Not another black cylinder.</h2>
+    <p>Every smart speaker looks the same: a plastic puck, a fabric cylinder, a little computer
+    apologizing for existing. People have kept maneki-neko on their shelves for centuries - in
+    shops, in kitchens, by front doors - because a lucky cat is a charm, not an appliance.</p>
+    <p>So that is where the computer goes. Lucky Cat is a voice assistant you would keep on the
+    shelf even if it never said a word.</p>
+  </section>
+
+  <section id="specs" class="specs">
+    <h2>Its own brain, in your house.</h2>
+    <p class="specs-lede">The first prototype runs on a Raspberry Pi 5 with a fully offline stack.
+    Nothing leaves the room unless you ask it to.</p>
+    <ul class="spec-grid">
+      <li><span>Wake word</span><span>On-device, always local</span></li>
+      <li><span>Brain</span><span>Fine-tuned small model, runs offline</span></li>
+      <li><span>Voice</span><span>Open TTS, no cloud account</span></li>
+      <li><span>Body</span><span>Ceramic cat, electronics in the base</span></li>
+      <li><span>Software</span><span>Open stack, built in public</span></li>
+      <li><span>Home</span><span>Made in Chicago</span></li>
+    </ul>
+  </section>
+
+  <section class="strip strip-dark" aria-hidden="true">
+    <img src="assets/banner-dark.png" alt="">
+  </section>
+
+  <section id="wishlist" class="wishlist">
+    <h2>Be first in line.</h2>
+    <p>The first run will be small. Join the wishlist and you hear about it before anyone else.
+    Follow the build: <a href="https://luckycatrobot.substack.com">Substack</a> &middot;
+    <a href="https://x.com/luckycatrobot">X</a> &middot;
+    <a href="https://www.instagram.com/luckycatrobot/">Instagram</a></p>
+    <form id="wishlist-form" novalidate>
+      <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <button type="submit">Join the wishlist</button>
+    </form>
+    <p id="wishlist-done" class="wishlist-done" hidden>You're on the list. The cat will call for you.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wordmark">LUCKY&nbsp;CAT</div>
+  <p>Made in Chicago.</p>
+</footer>
+
+<script>
+var FORMSPREE_ENDPOINT = "https://formspree.io/f/mljevqee";
+document.getElementById('wishlist-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var form = this;
+  var input = form.querySelector('input[type=email]');
+  var btn = form.querySelector('button[type=submit]');
+  var email = (input.value || '').trim();
+  if (!email || email.indexOf('@') < 1 || email.indexOf('.') < 0) { input.focus(); return; }
+  btn.disabled = true; btn.textContent = 'Joining...';
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, _subject: "Lucky Cat wishlist signup (studio variant)", _gotcha: "" })
+  }).then(function (res) {
+    if (res.ok) {
+      form.hidden = true;
+      document.getElementById('wishlist-done').hidden = false;
+    } else {
+      btn.disabled = false; btn.textContent = 'Try again';
+    }
+  }).catch(function () {
+    btn.disabled = false; btn.textContent = 'Try again';
+  });
+});
+</script>
+
+</body>
+</html>
