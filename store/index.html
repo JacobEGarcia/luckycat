@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lucky Cat Store</title>
+<meta name="description" content="Objects that carry good fortune. Buckets, prints, virtue sheets, and the cat itself.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&text=%E6%8B%9B%E7%A6%8F%E7%8C%AB%E5%90%89%E5%B9%B8%E9%81%8B%E3%81%8D&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0D0B07; --bg2:#14110C; --panel:#1A1712;
+  --cream:#F5F1E8; --cream-dim:rgba(245,241,232,.62); --cream-faint:rgba(245,241,232,.36);
+  --gold:#C9A227; --gold-deep:#A8861B; --gold-soft:rgba(201,162,39,.55);
+  --amber:#E89B4A; --amber-dim:rgba(232,155,74,.35);
+  --shu:#C73A24; --line:rgba(245,241,232,.09); --line-gold:rgba(201,162,39,.22);
+  --serif:'Noto Serif JP', serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:'Inter',-apple-system,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.container{max-width:1160px;margin:0 auto;padding:0 40px}
+
+/* ---------- header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(13,11,7,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand svg{width:34px;height:34px}
+.brand-name{font-weight:800;font-size:13px;letter-spacing:.24em}
+.brand-name em{font-style:normal;color:var(--gold)}
+.nav-links{display:flex;gap:34px;align-items:center;font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--cream-dim)}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{border:1px solid var(--line-gold);padding:9px 20px;color:var(--gold)!important;transition:.25s}
+.nav-cta:hover{background:var(--gold);color:#14110C!important}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:140px 0 80px;background:radial-gradient(ellipse 55% 40% at 50% -4%,rgba(232,155,74,.16),transparent 65%),radial-gradient(ellipse 70% 55% at 72% 42%,rgba(201,162,39,.07),transparent 60%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;width:100%}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.34em;color:var(--gold);margin-bottom:34px}
+.hero h1{font-size:clamp(46px,5.4vw,76px);line-height:1.04;font-weight:800;letter-spacing:-.025em;margin-bottom:28px}
+.hero h1 span{color:var(--gold)}
+.hero-sub{color:var(--cream-dim);font-size:18px;max-width:430px;margin-bottom:44px;line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:.16em;padding:17px 34px;transition:.3s}
+.btn-gold{background:var(--gold);color:#14110C}
+.btn-gold:hover{background:var(--cream)}
+.btn-ghost{border:1px solid var(--line-gold);color:var(--cream);margin-left:16px}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-figure{position:relative;display:flex;justify-content:center}
+.hero-loop{width:min(470px,100%);aspect-ratio:4/5;object-fit:cover;display:block;
+  -webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 48%,#000 52%,transparent 98%);
+  mask-image:radial-gradient(ellipse 72% 72% at 50% 48%,#000 52%,transparent 98%)}
+.hero-figure img{width:min(430px,90%);filter:drop-shadow(0 30px 70px rgba(0,0,0,.6))}
+.hero-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(520px,100%);aspect-ratio:1;border:1px solid var(--line-gold);border-radius:50%;pointer-events:none}
+.lantern-string{position:absolute;top:0;left:0;right:0;height:170px;pointer-events:none;overflow:visible}
+.lantern-string .wire{fill:none;stroke:rgba(245,241,232,.14);stroke-width:1.2}
+.lantern-string .cord{stroke:rgba(245,241,232,.16);stroke-width:1}
+.lantern-string .chochin{fill:#E89B4A;opacity:.85}
+.lantern-string .chochin-dim{fill:#C9762E;opacity:.55}
+.lantern-string .glow{fill:url(#lg)}
+.tategaki{position:absolute;top:90px;right:40px;writing-mode:vertical-rl;font-family:var(--serif);font-size:26px;letter-spacing:.5em;color:var(--gold-soft)}
+.hero-meta{position:absolute;bottom:48px;left:40px;font-size:11px;letter-spacing:.22em;color:var(--cream-faint)}
+
+/* ---------- sections ---------- */
+.section{padding:110px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:64px;flex-wrap:wrap;gap:14px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.3em;color:var(--gold);margin-bottom:16px}
+.sec-head h2{font-size:clamp(32px,3.6vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.sec-kanji{font-family:var(--serif);color:var(--cream-faint);font-size:22px;letter-spacing:.3em}
+
+/* figure feature */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.feature img{width:100%;filter:drop-shadow(0 24px 60px rgba(0,0,0,.55))}
+.feature-copy h3{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin-bottom:22px}
+.feature-copy p{color:var(--cream-dim);max-width:440px;margin-bottom:18px}
+.spec-row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px;max-width:440px}
+.spec-row dt{color:var(--cream-faint);letter-spacing:.08em}
+.spec-row dd{color:var(--cream);font-weight:600;text-align:right}
+.chip{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.24em;color:var(--gold);border:1px solid var(--line-gold);padding:6px 14px;margin-bottom:26px}
+
+/* category */
+.cat{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start}
+.cat-side{position:sticky;top:120px}
+.cat-side img{width:200px;margin:34px 0 0 6px;opacity:.92}
+.cat-title h3{font-size:clamp(26px,2.8vw,36px);font-weight:800;letter-spacing:-.02em}
+.cat-title .en{font-size:11px;font-weight:700;letter-spacing:.3em;color:var(--gold);display:block;margin-bottom:14px}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px 32px;padding:26px 4px;border-bottom:1px solid var(--line);align-items:baseline;transition:background .3s}
+.row:hover{background:rgba(245,241,232,.025)}
+.row-name{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.row-name .kanji{font-family:var(--serif);font-weight:600;color:var(--gold);font-size:16px;margin-left:12px;letter-spacing:.1em}
+.row-desc{grid-column:1;color:var(--cream-dim);font-size:14.5px;max-width:520px}
+.row-price{grid-column:2;grid-row:1;font-weight:700;color:var(--gold);font-size:17px;letter-spacing:.02em}
+.row-cta{grid-column:2;grid-row:2;font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--cream-faint);text-align:right}
+.row:hover .row-cta{color:var(--gold)}
+.row-workshop .row-price{color:var(--cream-faint);font-weight:600;font-size:12px;letter-spacing:.2em}
+
+/* banner cta */
+.banner{padding:120px 0;text-align:center;border-top:1px solid var(--line);background:radial-gradient(ellipse 60% 80% at 50% 100%,rgba(232,155,74,.11),transparent 65%)}
+.banner .kanji-big{font-family:var(--serif);font-size:60px;color:var(--gold);margin-bottom:30px}
+.banner h2{font-size:clamp(34px,4vw,56px);font-weight:800;letter-spacing:-.02em;margin-bottom:20px}
+.banner p{color:var(--cream-dim);max-width:480px;margin:0 auto 42px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 44px;background:var(--bg2)}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.foot svg{width:44px;height:44px}
+.foot-nav{display:flex;gap:30px;font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--cream-dim);margin-top:8px}
+.foot-nav a:hover{color:var(--gold)}
+.foot-note{color:var(--cream-faint);font-size:11.5px;line-height:1.8;max-width:520px;margin-top:34px}
+.foot-note a{color:var(--gold-soft);border-bottom:1px solid transparent}
+.foot-note a:hover{border-color:var(--gold-soft)}
+
+@media (max-width:900px){
+  .container{padding:0 24px}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero-figure{order:-1}
+  .hero-figure img{width:min(320px,80%)}
+  .hero-ring{width:min(380px,92%)}
+  .lantern-string{position:absolute;top:0;left:0;right:0;height:170px;pointer-events:none;overflow:visible}
+.lantern-string .wire{fill:none;stroke:rgba(245,241,232,.14);stroke-width:1.2}
+.lantern-string .cord{stroke:rgba(245,241,232,.16);stroke-width:1}
+.lantern-string .chochin{fill:#E89B4A;opacity:.85}
+.lantern-string .chochin-dim{fill:#C9762E;opacity:.55}
+.lantern-string .glow{fill:url(#lg)}
+.tategaki{display:none}
+  .hero-meta{display:none}
+  .feature{grid-template-columns:1fr;gap:40px}
+  .cat{grid-template-columns:1fr;gap:36px}
+  .cat-side{position:static}
+  .cat-side img{width:120px;margin:20px 0 0 0}
+  .nav-links a:not(.nav-cta){display:none}
+  .section{padding:80px 0}
+  .row-desc{max-width:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#F5F1E8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 42 L17 15 L40 29"/>
+        <path d="M78 42 L83 15 L60 29"/>
+        <path d="M15 58 C15 33 33 22 50 22 C67 22 85 33 85 58 C85 76 70 88 50 88 C30 88 15 76 15 58 Z"/>
+        <path d="M34 54 Q39 48 44 54"/>
+        <path d="M56 54 Q61 48 66 54"/>
+      </svg>
+      <span class="brand-name">LUCKY CAT <em>STORE</em></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#figure">THE FIGURE</a>
+      <a href="#wear">WEAR</a>
+      <a href="#paper">PAPER</a>
+      <a href="#table">TABLE</a>
+      <a class="nav-cta" href="https://jacobegarcia.github.io/luckycat/#wishlist">JOIN THE LIST</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="lantern-string" viewBox="0 0 1200 170" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
+    <defs>
+      <radialGradient id="lg" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#E89B4A" stop-opacity=".34"/>
+        <stop offset="100%" stop-color="#E89B4A" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <path class="wire" d="M-20 6 Q 300 84 600 84 Q 900 84 1220 6"/>
+    <g>
+      <line class="cord" x1="180" y1="52" x2="180" y2="78"/>
+      <circle class="glow" cx="180" cy="102" r="46"/>
+      <ellipse class="chochin" cx="180" cy="102" rx="17" ry="24"/>
+      <line class="cord" x1="420" y1="78" x2="420" y2="100"/>
+      <circle class="glow" cx="420" cy="120" r="36"/>
+      <ellipse class="chochin-dim" cx="420" cy="120" rx="13" ry="19"/>
+      <line class="cord" x1="600" y1="84" x2="600" y2="106"/>
+      <circle class="glow" cx="600" cy="126" r="40"/>
+      <ellipse class="chochin" cx="600" cy="126" rx="15" ry="21"/>
+      <line class="cord" x1="790" y1="77" x2="790" y2="99"/>
+      <circle class="glow" cx="790" cy="119" r="34"/>
+      <ellipse class="chochin-dim" cx="790" cy="119" rx="12" ry="18"/>
+      <line class="cord" x1="1030" y1="48" x2="1030" y2="74"/>
+      <circle class="glow" cx="1030" cy="98" r="44"/>
+      <ellipse class="chochin" cx="1030" cy="98" rx="16" ry="23"/>
+    </g>
+  </svg>
+  <div class="tategaki">招福</div>
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">THE STORE OF GOOD FORTUNE</div>
+      <h1>Objects that<br>carry <span>luck</span>.</h1>
+      <p class="hero-sub">A small shop of things worth keeping. Buckets, prints, virtue sheets, and the cat itself. Everything made slowly, in cream and gold and ink.</p>
+      <a class="btn btn-gold" href="https://jacobegarcia.github.io/luckycat/#wishlist">JOIN THE LIST</a>
+      <a class="btn btn-ghost" href="#wear">BROWSE THE LINE</a>
+    </div>
+    <div class="hero-figure">
+      <video class="hero-loop" autoplay muted loop playsinline preload="auto" poster="assets/hero-loop-poster.jpg" aria-label="The Lucky Cat, waving">
+        <source src="assets/hero-loop.webm" type="video/webm">
+      </video>
+    </div>
+  </div>
+  <div class="hero-meta">EST. 2026 · MADE WITH INTENTION</div>
+</section>
+
+<section class="section" id="figure">
+  <div class="container">
+    <div class="sec-label">01 · THE FIGURE</div>
+    <div class="feature">
+      <img src="assets/figure-still.jpg" alt="Prototype Zero, the Lucky Cat figure">
+      <div class="feature-copy">
+        <div class="chip">IN THE WORKSHOP</div>
+        <h3>The Lucky Cat.<br>Prototype Zero.</h3>
+        <p>The one that started it all. A computer disguised as an invitation, carved from a decade of luck. Gloss finish, red collar, gold at the bell and the coin.</p>
+        <p>It is not for sale yet. The list hears first when it is.</p>
+        <dl style="margin-top:26px">
+          <div class="spec-row"><dt>FINISH</dt><dd>Gloss ceramic, gold and vermilion</dd></div>
+          <div class="spec-row"><dt>ORIGIN</dt><dd>The workshop</dd></div>
+          <div class="spec-row"><dt>STATUS</dt><dd><a href="https://jacobegarcia.github.io/luckycat/#wishlist" style="color:var(--gold)">Join the list →</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="wear">
+  <div class="container cat">
+    <aside class="cat-side">
+      <div class="cat-title"><span class="en">02 · THE WEAR</span><h3>Worn<br>fortune.</h3></div>
+      <img src="assets/motif-wear-t.png" alt="">
+    </aside>
+    <div class="rows">
+      <a class="row" href="https://jacobegarcia.github.io/luckycat/#wishlist">
+        <span class="row-name">The Embroidered Bucket<span class="kanji">福</span></span>
+        <span class="row-desc">White cotton, lucky cats embroidered in gold thread, tiny bells at the brim. The one the Kickstarter asked for first.</span>
+        <span class="row-price">$38</span>
+        <span class="row-cta">NOTIFY ME →</span>
+      </a>
+      <a class="row" href="https://jacobegarcia.github.io/luckycat/#wishlist">
+        <span class="row-name">The Black Gold Bucket<span class="kanji">吉</span></span>
+        <span class="row-desc">One gold cat on ink-black cotton. Quieter. The bell stays home.</span>
+        <span class="row-price">$36</span>
+        <span class="row-cta">NOTIFY ME →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="paper">
+  <div class="container cat">
+    <aside class="cat-side">
+      <div class="cat-title"><span class="en">03 · THE PAPER</span><h3>Ink and<br>gold leaf.</h3></div>
+      <img src="assets/motif-paper-t.png" alt="">
+    </aside>
+    <div class="rows">
+      <a class="row" href="https://jacobegarcia.github.io/luckycat/#wishlist">
+        <span class="row-name">The Sakura Print<span class="kanji">幸</span></span>
+        <span class="row-desc">An ukiyo-e study of the cat beneath falling blossom. Printed on heavy archival stock, signed in the corner.</span>
+        <span class="row-price">$45</span>
+        <span class="row-cta">NOTIFY ME →</span>
+      </a>
+      <a class="row" href="https://jacobegarcia.github.io/luckycat/#wishlist">
+        <span class="row-name">The Wave Print<span class="kanji">運</span></span>
+        <span class="row-desc">After Hokusai. The cat rides the great wave and does not blink. Same stock, same signature.</span>
+        <span class="row-price">$45</span>
+        <span class="row-cta">NOTIFY ME →</span>
+      </a>
+      <a class="row" href="https://jacobegarcia.github.io/luckycat/#wishlist">
+        <span class="row-name">The Virtue Sheet<span class="kanji">招</span></span>
+        <span class="row-desc">Nine cats, nine words. Patience, curiosity, warmth, and six more, one sticker each. Singles at the counter.</span>
+        <span class="row-price">$12</span>
+        <span class="row-cta">NOTIFY ME →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="table">
+  <div class="container cat">
+    <aside class="cat-side">
+      <div class="cat-title"><span class="en">04 · THE TABLE</span><h3>Poured<br>slowly.</h3></div>
+      <img src="assets/motif-table-t.png" alt="">
+    </aside>
+    <div class="rows">
+      <div class="row row-workshop">
+        <span class="row-name">The Sake Set<span class="kanji">福</span></span>
+        <span class="row-desc">A decanter and two paw cups, wrapped in a seigaiha box. For the evenings that deserve a ceremony.</span>
+        <span class="row-price">IN THE WORKSHOP</span>
+        <span class="row-cta">SOON</span>
+      </div>
+      <div class="row row-workshop">
+        <span class="row-name">The Black Soju<span class="kanji">吉</span></span>
+        <span class="row-desc">Gold filigree on black glass. The bottle you keep after it is empty.</span>
+        <span class="row-price">IN THE WORKSHOP</span>
+        <span class="row-cta">SOON</span>
+      </div>
+      <div class="row row-workshop">
+        <span class="row-name">The Decanter<span class="kanji">幸</span></span>
+        <span class="row-desc">The patron's vessel. One pour at a time, nothing rushed.</span>
+        <span class="row-price">IN THE WORKSHOP</span>
+        <span class="row-cta">SOON</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="digital">
+  <div class="container cat">
+    <aside class="cat-side">
+      <div class="cat-title"><span class="en">05 · THE DIGITAL</span><h3>Carried<br>daily.</h3></div>
+      <img src="assets/motif-digital-t.png" alt="">
+    </aside>
+    <div class="rows">
+      <a class="row" href="https://jacobegarcia.github.io/luckycat/#wishlist">
+        <span class="row-name">Wallpaper Volume I<span class="kanji">運</span></span>
+        <span class="row-desc">Phone wallpapers in the store's register: gold on ink, negative space, the cat in profile.</span>
+        <span class="row-price">THE LIST</span>
+        <span class="row-cta">JOIN →</span>
+      </a>
+      <a class="row" href="https://jacobegarcia.github.io/luckycat/#wishlist">
+        <span class="row-name">Wallpaper Volumes II + III<span class="kanji">招</span></span>
+        <span class="row-desc">More studies, same discipline. Sent to the list as each volume finishes.</span>
+        <span class="row-price">THE LIST</span>
+        <span class="row-cta">JOIN →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="banner">
+  <div class="container">
+    <div class="kanji-big">福</div>
+    <h2>Luck favors<br>the listed.</h2>
+    <p>Everything here ships to the wishlist first. Prices, dates, and first allocation go to the list before anyone else.</p>
+    <a class="btn btn-gold" href="https://jacobegarcia.github.io/luckycat/#wishlist">JOIN THE LIST</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <svg viewBox="0 0 100 100" fill="none" stroke="#C9A227" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 42 L17 15 L40 29"/>
+          <path d="M78 42 L83 15 L60 29"/>
+          <path d="M15 58 C15 33 33 22 50 22 C67 22 85 33 85 58 C85 76 70 88 50 88 C30 88 15 76 15 58 Z"/>
+          <path d="M34 54 Q39 48 44 54"/>
+          <path d="M56 54 Q61 48 66 54"/>
+        </svg>
+        <div class="foot-nav">
+          <a href="../">MAIN SITE</a>
+          <a href="https://jacobegarcia.github.io/luckycat/#wishlist">WISHLIST</a>
+          <a href="https://jacobegarcia.github.io/luckycat/#line">THE LINE</a>
+        </div>
+      </div>
+    </div>
+    <p class="foot-note">The Lucky Cat figure is an original sculpt, made in the workshop. Prices are set in the workshop and may change before the doors open. © 2026 Lucky Cat.</p>
+  </div>
+</footer>
+
+<script>
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.hero-loop').forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); });
+}
+</script>
+</body>
+</html>
