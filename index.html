@@ -293,6 +293,7 @@
     <a href="https://luckycatrobot.substack.com">Substack</a>
   </nav>
   <p>Made in Chicago.</p>
+  <p class="model-credit">3D model: original sculpt.</p>
 </footer>
 
 <script>
@@ -397,15 +398,19 @@ fetch('assets/luckycat-hero.glb', { method: 'HEAD' }).then(function (res) {
   mv.style.width = 'min(480px, 82vw)';
   mv.style.height = 'min(480px, 82vw)';
   mv.style.setProperty('--poster-color', 'transparent');
+  mv.style.visibility = 'hidden'; // keep the PNG hero until the model actually renders
+  slot.appendChild(mv);
+  mv.addEventListener('error', function () { mv.remove(); }); // PNG fallback stays
+  mv.addEventListener('load', function () {
   slot.innerHTML = '';
+  mv.style.visibility = '';
   slot.appendChild(mv);
   slot.classList.add('has-3d');
-  mv.addEventListener('load', function () {
     // Pick the waving animation if the GLB names its clips; otherwise the first clip plays.
     var clips = mv.availableAnimations || [];
     var wave = clips.filter(function (n) { return /wave|beckon|arm/i.test(n); })[0] || clips[0];
     if (wave) mv.animationName = wave;
-    mv.play(); // loops by default: the cat waves on load
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) mv.play(); // loops by default
     // Replay the wave on hover / tap.
     var replay = function () { if (mv.paused) { mv.currentTime = 0; mv.play(); } };
     mv.addEventListener('pointerenter', function () { mv.currentTime = 0; mv.play(); });
