@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lucky Cat - The voice assistant that brings you luck</title>
-<meta name="description" content="Lucky Cat is an ambient computer inside a maneki-neko. Wake word on-device, an offline brain, open software. Join the wishlist.">
+<meta name="description" content="Lucky Cat is an ambient computer inside a maneki-neko. Pi 5 prototype with a working cloud voice loop; local wake word and brain are in development. Join the wishlist.">
 <meta name="theme-color" content="#14110C">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lucky Cat - The voice assistant that brings you luck">
-<meta property="og:description" content="An ambient computer inside a maneki-neko. Wake word on-device, an offline brain, open software. Join the wishlist.">
+<meta property="og:description" content="An ambient computer inside a maneki-neko. Pi 5 prototype with a working cloud voice loop; local wake word and brain are in development. Join the wishlist.">
 <meta property="og:url" content="https://jacobegarcia.github.io/luckycat/">
 <meta property="og:image" content="https://jacobegarcia.github.io/luckycat/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,6 +35,8 @@
     <a href="#line">The line</a>
     <a href="#story">Story</a>
     <a href="#inside">Inside</a>
+    <a href="#prototype">Prototype</a>
+    <a href="#posters">Posters</a>
     <a href="https://jacobegarcia.github.io/lucky-playground/">Playground</a>
     <a href="#wishlist" class="nav-cta">Wishlist</a>
   </nav>
@@ -42,21 +44,18 @@
 
 <main id="top">
 
-  <section class="hero hero-monument">
-    <p class="eyebrow">An ambient computer, made in Chicago</p>
-    <p class="tategaki" aria-hidden="true">招き猫</p>
-    <div class="mark-wrap" id="hero-model-slot">
-      <img src="assets/hero-cat-base.png" alt="The Lucky Cat mark - a flat single-ink maneki-neko, waving" id="hero-mark">
-      <img src="assets/hero-cat-paw.png" alt="" aria-hidden="true" class="mark-paw">
+  <section class="hero hero-authored">
+    <div class="hero-object">
+      <img src="assets/cats-real.jpg" alt="Two physical gold Lucky Cat objects in the Chicago workspace">
+      <p>Physical objects · Chicago workspace · September 2026</p>
     </div>
-    <h1>The voice assistant<br>that brings you <em>luck.</em></h1>
-    <p class="lede">Lucky Cat lives inside a maneki-neko. It sits on your shelf, listens when you
-    call it, runs its own brain offline, and looks like it was always meant to be there.</p>
-    <div class="hero-actions">
-      <a class="btn" href="#wishlist">Join the wishlist</a>
-      <a class="btn btn-ghost" href="#line">Meet the line</a>
+    <div class="hero-statement">
+      <p class="eyebrow">Lucky Cat · Chicago</p>
+      <h1><span>A voice assistant</span><span>with a place <em>to be.</em></span></h1>
+      <p class="lede">A familiar object. A new voice. Nothing pretending to be finished.</p>
+      <p class="hero-fact">Two physical cats in the Chicago workspace. The Pi 5 voice loop uses Gemini today; local speech and a local brain are in development.</p>
+      <div class="hero-actions"><a class="btn" href="#prototype">See the build</a><a class="quiet-link" href="#wishlist">Join the first run</a></div>
     </div>
-    <p class="hero-meta">First run in the workshop now &middot; built in public &middot; <a href="https://jacobegarcia.github.io/lucky-playground/">the playground</a></p>
   </section>
 
   <section class="strip" aria-hidden="true">
@@ -78,14 +77,14 @@
         <h3>Lucky Cat</h3>
         <p class="product-tag">The flagship. A ceramic maneki-neko with the assistant inside.</p>
         <p>The cat people have kept by front doors for centuries, now with something to say.
-        Wake word on-device, a fine-tuned brain that runs fully offline, five personalities
+        Push-to-talk today, Gemini as the working brain, and a local model in testing
         you can swap like records. Electronics hide in a low base - the coin slot carries
         the sound.</p>
         <ul class="spec-list">
           <li><span>Body</span><span>Ceramic cat, electronics in the base</span></li>
-          <li><span>Wake word</span><span>On-device, always local</span></li>
-          <li><span>Brain</span><span>Fine-tuned small model, runs offline</span></li>
-          <li><span>Voice</span><span>Open TTS, no cloud account</span></li>
+          <li><span>Wake word</span><span>Push-to-talk now; local wake word next</span></li>
+          <li><span>Brain</span><span>Gemini now; local model in testing</span></li>
+          <li><span>Voice</span><span>Working speaker loop; local TTS planned</span></li>
           <li><span>Personas</span><span>Classic, sassy, butler, hype, kid</span></li>
         </ul>
         <button class="btn btn-small" data-interest="cat">Wishlist the cat</button>
@@ -162,18 +161,18 @@
 
   <section id="inside" class="section section-inside reveal">
     <p class="section-no">03</p>
-    <h2 class="section-title">Its own brain, in your house.</h2>
+    <h2 class="section-title">A small computer with a point of view.</h2>
     <div class="story-body">
-      <p>The first prototype runs on a Raspberry Pi 5 with a fully offline stack: wake word
-      on-device, open speech-to-text and text-to-speech, and a small language model
-      fine-tuned just for the cat. Nothing leaves the room unless you ask it to.</p>
+      <p>The first prototype runs on a Raspberry Pi 5. Its voice loop uses Gemini while the local
+      model is tested and tuned; wake word and local speech are the next build steps. The
+      aim is still a cat that can keep the everyday loop in the room.</p>
       <ul class="spec-list spec-wide">
-        <li><span>Ears</span><span>whisper.cpp, on-device speech-to-text</span></li>
-        <li><span>Brain</span><span>Fine-tuned Qwen 3B, runs offline on a Pi 5</span></li>
-        <li><span>Voice</span><span>Piper TTS, open voices, no cloud</span></li>
-        <li><span>Body</span><span>Servo lid and paw, LED states, rub to wake</span></li>
+        <li><span>Ears</span><span>USB microphone; local speech next</span></li>
+        <li><span>Brain</span><span>Gemini prototype; fine-tuned Qwen 3B in testing</span></li>
+        <li><span>Voice</span><span>Speaker output working; open TTS planned</span></li>
+        <li><span>Body</span><span>3.5-inch screen face; moving shell in development</span></li>
         <li><span>Personas</span><span>Five packs, hot-swappable, open format</span></li>
-        <li><span>Software</span><span>Genie OS - one stack, every body, built in public</span></li>
+        <li><span>Software</span><span>One evolving stack, built in public</span></li>
       </ul>
     </div>
   </section>
@@ -182,8 +181,53 @@
     <img src="assets/banner-dark.png" alt="">
   </section>
 
-  <section class="section section-public reveal">
+
+
+  <section id="prototype" class="section section-prototype reveal">
     <p class="section-no">04</p>
+    <div class="prototype-head">
+      <div>
+        <p class="eyebrow">Build state, September 2026</p>
+        <h2 class="section-title">Built honestly.</h2>
+      </div>
+      <p class="section-lede">The working prototype is simple: a microphone, Raspberry Pi 5, Gemini and a speaker. It needs the internet. The product body and local stack are still being made.</p>
+    </div>
+    <div class="proof-collage">
+      <figure class="proof-reel"><video src="assets/prototype-build.mp4" controls muted playsinline preload="metadata" poster="assets/prototype-still.jpg"></video><figcaption>37-second product film · concept visualization</figcaption></figure>
+      <figure class="proof-image"><img src="assets/posters/wave-back.webp" alt="Concept campaign study of the raised Lucky Cat paw"><figcaption>Concept study, not the physical build</figcaption></figure>
+    </div>
+    <div class="state-flow" aria-label="Current and planned architecture">
+      <article class="state-now"><p class="state-label"><span class="state-dot"></span>Working on the bench</p><h3>Mic → Pi 5 → Gemini → speaker.</h3><p>A complete voice turn on the Raspberry Pi. It needs the internet. That is the honest starting line.</p></article>
+      <article class="state-next"><p class="state-label">The next ritual</p><h3>Say its name. Keep the voice at home.</h3><p>Wake word, local speech, the fine-tuned Qwen model and a moving shell are still being built.</p></article>
+    </div>
+    <div class="proof-actions">
+      <a class="btn" href="https://jacobegarcia.github.io/luckycat-proof/">Open the proof page</a>
+      <a class="text-link" href="https://github.com/JacobEGarcia/luckycat">View source</a>
+    </div>
+  </section>
+
+  <section id="posters" class="section section-posters reveal">
+    <p class="section-no">05</p>
+    <div class="poster-heading">
+      <h2 class="section-title">Signs of luck.</h2>
+      <p class="section-lede">Campaign studies made around the familiar shape: two ears, one paw, a little gold. Product imagery is concept art while the physical prototype takes shape.</p>
+    </div>
+    <div class="poster-grid">
+      <figure class="poster"><img src="assets/posters/double-fortune.webp" alt="Two Lucky Cat figures in the Double Fortune campaign study" loading="lazy"><figcaption><span>Double fortune</span><span>Study 01</span></figcaption></figure>
+      <figure class="poster poster-tall"><img src="assets/posters/strike-gold.webp" alt="Lucky Cat campaign study titled Strike Gold" loading="lazy"><figcaption><span>Strike gold</span><span>Study 02</span></figcaption></figure>
+      <figure class="poster"><img src="assets/posters/something-lucky.webp" alt="Lucky Cat ears beneath the words something lucky is coming" loading="lazy"><figcaption><span>Something lucky</span><span>Study 03</span></figcaption></figure>
+      <figure class="poster"><img src="assets/posters/wave-back.webp" alt="Close crop of the Lucky Cat raised paw with the words wave back" loading="lazy"><figcaption><span>Wave back</span><span>Study 04</span></figcaption></figure>
+      <figure class="poster poster-wide"><img src="assets/posters/got-luck.webp" alt="Gold Lucky Cat campaign study titled Got Luck" loading="lazy"><figcaption><span>Got luck?</span><span>Study 05</span></figcaption></figure>
+      <figure class="poster"><img src="assets/posters/feeling-lucky.webp" alt="Gold Lucky Cat campaign study titled Feeling Lucky" loading="lazy"><figcaption><span>Feeling lucky?</span><span>Study 06</span></figcaption></figure>
+    </div>
+    <div class="graphic-beats" aria-label="Lucky Cat graphic studies">
+      <figure><img src="assets/posters/lucky-me-original.jpg" alt="Gold Lucky Cat silhouette beneath the words lucky me on black" loading="lazy"><figcaption><span>Lucky me</span><span>Original graphic</span></figcaption></figure>
+      <figure><img src="assets/posters/one-motherlucker-original.jpg" alt="Gold Lucky Cat silhouette beneath the words one motherlucker on black" loading="lazy"><figcaption><span>One motherlucker</span><span>Original graphic</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="section section-public reveal">
+    <p class="section-no">06</p>
     <h2 class="section-title">Built in public.</h2>
     <div class="story-body">
       <p>Every step of the first Lucky Cat - the parts list, the fine-tune runs, the shell,
@@ -197,7 +241,7 @@
   </section>
 
   <section id="playground" class="section section-playground reveal">
-    <p class="section-no">05</p>
+    <p class="section-no">07</p>
     <h2 class="section-title">The playground.</h2>
     <p class="section-lede">Small toys from the Lucky Cat workshop. Free, no accounts, made for luck.</p>
     <div class="toy-grid">
