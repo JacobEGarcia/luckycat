@@ -38,6 +38,7 @@
     <a href="#prototype">Prototype</a>
     <a href="https://jacobegarcia.github.io/luckycat-proof/">Proof</a>
     <a href="https://youtu.be/EtL4Ix5GXxw">Founder video</a>
+    <a href="store/">Objects</a>
     <a href="#wishlist" class="nav-cta">Wishlist</a>
   </nav>
 </header>
@@ -204,7 +205,8 @@
       <a class="btn" href="https://jacobegarcia.github.io/luckycat-proof/">1 · Read the proof</a>
       <a class="btn btn-ghost" href="https://youtu.be/EtL4Ix5GXxw">2 · Meet the founder</a>
       <a class="btn btn-ghost" href="https://jacobegarcia.github.io/fly-mind/">3 · Open Fly Mind</a>
-      <a class="text-link" href="#wishlist">4 · Join the first run</a>
+      <a class="btn btn-ghost" href="store/">4 · See objects</a>
+      <a class="text-link" href="#wishlist">5 · Join the first run</a>
     </div>
   </section>
 
@@ -299,6 +301,12 @@
         <label><input type="checkbox" name="interest-lamp" value="yes"> The lamp</label>
         <label><input type="checkbox" name="interest-accessories" value="yes"> Accessories</label>
       </div>
+      <fieldset class="buy-intent"><legend>Which Lucky Cat would you actually buy?</legend>
+        <label><input type="radio" name="purchase-intent" value="49-mini-phone-brain"><span><b>$49 Mini</b><small>Phone-brain · free app</small></span></label>
+        <label><input type="radio" name="purchase-intent" value="199-connected-main"><span><b>$199 Connected main</b><small>Pi inside</small></span></label>
+        <label><input type="radio" name="purchase-intent" value="499-offline-flagship"><span><b>$499 Offline flagship</b><small>Numbered · planned fully local tier</small></span></label>
+        <label><input type="radio" name="purchase-intent" value="none-watching"><span><b>None</b><small>Just watching</small></span></label>
+      </fieldset>
       <p class="persona-q">Optional: which persona should ship in the box first?</p>
       <div class="persona-row" id="persona-row">
         <label><input type="radio" name="persona" value="classic"><span>Classic</span></label>
@@ -367,6 +375,7 @@ document.getElementById('wishlist-form').addEventListener('submit', function (e)
   form.querySelectorAll('.interest-row input[type=checkbox]:checked').forEach(function (box) {
     interests.push(box.name.replace('interest-', ''));
   });
+  var purchaseIntent = (form.querySelector('input[name=purchase-intent]:checked') || {}).value || 'not answered';
   var persona = (form.querySelector('input[name=persona]:checked') || {}).value || '';
   var src = new URLSearchParams(location.search).get('ref') ||
             new URLSearchParams(location.search).get('utm_source') || 'direct';
@@ -377,6 +386,7 @@ document.getElementById('wishlist-form').addEventListener('submit', function (e)
     body: JSON.stringify({
       email: email,
       interests: interests.join(', ') || 'unspecified',
+      purchase_intent: purchaseIntent,
       persona_first: persona || 'no pick',
       source: src,
       _subject: 'Lucky Cat wishlist signup',
