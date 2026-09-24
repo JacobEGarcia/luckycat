@@ -323,6 +323,11 @@
       <p class="form-note">One email when there is real build progress. Unsubscribe any time.</p>
     </form>
     <div id="wishlist-done" class="wishlist-done" hidden>
+      <svg class="wd-check" viewBox="0 0 72 72" width="56" height="56" aria-hidden="true">
+        <circle class="wd-ring" cx="36" cy="36" r="30"/>
+        <circle class="wd-arc" cx="36" cy="36" r="30" transform="rotate(-90 36 36)"/>
+        <path class="wd-tick" d="M24 37 l8 8 l16 -17"/>
+      </svg>
       <p class="wishlist-done-line">You're on the list. The cat will call for you.</p>
       <p class="share-lede">Bring a friend luck:</p>
       <div class="share-row">
@@ -409,6 +414,7 @@ function showWishlistDone() {
   document.getElementById('wishlist-form').hidden = true;
   document.querySelector('.wishlist-alt').hidden = true;
   document.getElementById('wishlist-done').hidden = false;
+  document.getElementById('wishlist-done').classList.add('go');
 }
 try {
   if (localStorage.getItem('lc-wishlist-joined') === '1') showWishlistDone();
@@ -524,3 +530,4 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
 </body>
 </html>
+
