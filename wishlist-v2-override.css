@@ -101,7 +101,7 @@
 .wishlist-done .wd-check{display:block;margin:0 0 16px}
 .wd-ring{stroke:#DED4BF;stroke-width:2;fill:none}
 .wd-arc{stroke:#C73A24;stroke-width:2;fill:none;stroke-dasharray:188;stroke-dashoffset:188}
-.wd-tick{stroke:#16130E;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:34;stroke-dashoffset:34}
+.wd-tick{stroke:currentColor;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:34;stroke-dashoffset:34}
 .wishlist-done.go .wd-arc{stroke-dashoffset:0;transition:stroke-dashoffset .6s cubic-bezier(.16,1,.3,1)}
 .wishlist-done.go .wd-tick{stroke-dashoffset:0;transition:stroke-dashoffset .35s ease .35s}
 .wishlist-done.go .wishlist-done-line{animation:wdLine .5s cubic-bezier(.16,1,.3,1) .45s backwards}
