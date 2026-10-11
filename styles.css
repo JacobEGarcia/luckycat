@@ -932,3 +932,6 @@ body{background:#f1ede3;background-image:none;color:#17130d;font-family:"Helveti
 .wishlist .form-note{color:rgba(241,237,227,.5)}
 .wishlist-done .wishlist-done-line{color:#d5ae4e;font-family:"Helvetica Neue",Arial,sans-serif}
 .wishlist .wishlist-alt a{color:rgba(241,237,227,.65)}
+
+/* story readability: body copy inherited var(--ink-soft) dark text onto the red section */
+.section-story .story-body p { color: #f4dfaa; }
