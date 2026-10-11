@@ -23,7 +23,6 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="wishlist-v2-override.css">
 <noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
-<style>model-viewer::part(default-progress-bar) { display: none; }</style>
 </head>
 <body>
 
@@ -445,83 +444,6 @@ if (navigator.share) {
 }
 </script>
 
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-<script>
-fetch('assets/luckycat-hero.glb', { method: 'HEAD' }).then(function (res) {
-  if (!res.ok) return;
-  var slot = document.getElementById('hero-model-slot');
-  var img = document.getElementById('hero-mark');
-  var mv = document.createElement('model-viewer');
-  mv.setAttribute('src', 'assets/luckycat-hero.glb');
-  mv.setAttribute('alt', 'The Lucky Cat - interactive 3D model, waving');
-  mv.setAttribute('camera-controls', '');
-  mv.setAttribute('disable-zoom', '');
-  mv.setAttribute('interaction-prompt', 'none');
-  mv.setAttribute('shadow-intensity', '1');
-  mv.setAttribute('exposure', '1');
-  mv.style.width = 'min(480px, 82vw)';
-  mv.style.height = 'min(480px, 82vw)';
-  mv.style.setProperty('--poster-color', 'transparent');
-  mv.style.visibility = 'hidden'; // keep the PNG hero until the model actually renders
-  slot.appendChild(mv);
-  mv.addEventListener('error', function () { mv.remove(); }); // PNG fallback stays
-  mv.addEventListener('load', function () {
-  slot.innerHTML = '';
-  mv.style.visibility = '';
-  slot.appendChild(mv);
-  slot.classList.add('has-3d');
-    // Pick the waving animation if the GLB names its clips; otherwise the first clip plays.
-    var clips = mv.availableAnimations || [];
-    var wave = clips.filter(function (n) { return /wave|beckon|arm/i.test(n); })[0] || clips[0];
-    if (wave) mv.animationName = wave;
-    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) mv.play(); // loops by default
-    // Replay the wave on hover / tap.
-    var replay = function () { if (mv.paused) { mv.currentTime = 0; mv.play(); } };
-    mv.addEventListener('pointerenter', function () { mv.currentTime = 0; mv.play(); });
-    mv.addEventListener('click', replay);
-  });
-}).catch(function () {});
-
-/* ---- hero life: pointer parallax + pet-the-cat, works over the PNG or the 3D model ---- */
-(function () {
-  var slot = document.getElementById('hero-model-slot');
-  var hero = document.querySelector('.hero');
-  if (!slot || !hero) return;
-  var calm = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
-  if (calm) {
-    var tx = 0, ty = 0, rx = 0, ry = 0;
-    hero.addEventListener('pointermove', function (e) {
-      var r = slot.getBoundingClientRect();
-      tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width * 1.6)));
-      ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height * 1.6)));
-    });
-    hero.addEventListener('pointerleave', function () { tx = 0; ty = 0; });
-    (function tick() {
-      rx += (tx - rx) * 0.07; ry += (ty - ry) * 0.07;
-      slot.style.transform = 'translate3d(' + (rx * 14).toFixed(2) + 'px,' + (ry * 10).toFixed(2) +
-        'px,0) rotateY(' + (rx * 6).toFixed(2) + 'deg) rotateX(' + (-ry * 6).toFixed(2) + 'deg)';
-      requestAnimationFrame(tick);
-    })();
-  }
-  slot.addEventListener('pointerdown', function (e) {
-    slot.classList.remove('pet'); void slot.offsetWidth; slot.classList.add('pet');
-    if (!calm) return;
-    var r = slot.getBoundingClientRect();
-    for (var i = 0; i < 10; i++) {
-      var p = document.createElement('span');
-      p.className = 'luck-spark';
-      var a = (Math.PI * 2 * i) / 10 + Math.random() * 0.5;
-      var d = 46 + Math.random() * 42;
-      p.style.left = (e.clientX - r.left) + 'px';
-      p.style.top = (e.clientY - r.top) + 'px';
-      p.style.setProperty('--dx', (Math.cos(a) * d).toFixed(1) + 'px');
-      p.style.setProperty('--dy', (Math.sin(a) * d - 30).toFixed(1) + 'px');
-      slot.appendChild(p);
-      (function (el) { setTimeout(function () { el.remove(); }, 750); })(p);
-    }
-  });
-})();
-</script>
 <script>
 var io = new IntersectionObserver(function(entries){
   entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
@@ -530,4 +452,3 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
 </body>
 </html>
-
